@@ -147,10 +147,10 @@
 					<input type="text" name="text" id="text"></input>
 				</div>
 				<div>
-					<label for="initial-date">Datas</label>
+					<label for="initial-date">Datas*</label>
 					<div class="dates-wrapper">
-						<input type="datetime-local" name="initial-date" id="initial-date"></input>
-						<input type="datetime-local" name="final-date" id="final-date"></input>
+						<input type="datetime-local" name="initial-date" id="initial-date" required></input>
+						<input type="datetime-local" name="final-date" id="final-date" required></input>
 					</div>
 				</div>
 				<div>
@@ -167,8 +167,8 @@
 			</form>
 		</section>
 		<section class="link-wrapper">
-			<strong>Link: </strong><span id="link">Nenhum link gerado</span><button class="copy-button"
-				onclick="handleCopy()">
+			<strong>Link: </strong><a target="_blank" rel="noreferrer" id="link">Nenhum link gerado</a><button
+				class="copy-button" onclick="handleCopy()">
 				<img src="./copy-icon.svg" alt="copy icon"></button>
 		</section>
 	</main>
@@ -196,6 +196,7 @@
 			url.searchParams.append(key, value);
 		}
 		link.setAttribute('title', url.href)
+		link.setAttribute('href', url.href)
 		link.textContent = url.href;
 	}
 	function handleCopy() {
